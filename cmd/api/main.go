@@ -8,6 +8,7 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
+	"url_razor/internal/store"
 
 	"url_razor/internal/server"
 )
@@ -38,7 +39,16 @@ func gracefulShutdown(apiServer *http.Server, done chan bool) {
 }
 
 func main() {
+	log.Printf("Starting URL Razor API server...")
+	log.Printf(`
+   __  ______  __       ____  ___ _____   ____  ____ 
+  / / / / __ \/ /      / __ \/   /__  /  / __ \/ __ \
+ / / / / /_/ / /      / /_/ / /| | / /  / / / / /_/ /
+/ /_/ / _, _/ /___   / _, _/ ___ |/ /__/ /_/ / _, _/ 
+\____/_/ |_/_____/  /_/ |_/_/  |_/____/\____/_/ |_|
+`)
 
+	store.InitializeStore()
 	server := server.NewServer()
 
 	// Create a done channel to signal when the shutdown is complete
