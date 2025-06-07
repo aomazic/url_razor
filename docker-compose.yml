@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:alpine
+    container_name: url_razor_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    networks:
+      - url_razor_network
+
+networks:
+  url_razor_network:
+    driver: bridge
+
+volumes:
+  redis_data:
