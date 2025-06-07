@@ -1,6 +1,7 @@
 # Project url_razor
 
-One Paragraph of project description goes here
+This project serves as a learning exercise for Go.
+
 
 ## Getting Started
 
